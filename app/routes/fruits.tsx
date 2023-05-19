@@ -1,6 +1,5 @@
 import { useFetcher, useNavigation } from "@remix-run/react";
 import { LoaderFunction, V2_MetaFunction, json } from "@remix-run/node";
-
 import { Fruits } from "@prisma/client";
 
 import { prisma } from "~/utils";
@@ -18,7 +17,7 @@ export default function () {
   const { state } = useNavigation();
   const { Form } = useFetcher();
 
-  const loaderData = useLiveLoader<Fruits[]>();
+  const fruits = useLiveLoader<Fruits[]>();
 
   return (
     <main>
@@ -41,12 +40,12 @@ export default function () {
           <th>Action</th>
         </tr>
 
-        {loaderData.map((item) => (
-          <tr key={item.id}>
-            <td>{item.name}</td>
+        {fruits.map((fruit) => (
+          <tr key={fruit.id}>
+            <td>{fruit.name}</td>
             <td>
               <Form method="post" action="/fruits/delete">
-                <input type="hidden" name="id" value={item.id} />
+                <input type="hidden" name="id" value={fruit.id} />
                 <button name="_action" value="delete">
                   Delete
                 </button>

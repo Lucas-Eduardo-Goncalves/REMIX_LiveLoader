@@ -7,7 +7,7 @@ export const action: ActionFunction = async ({ request }) => {
   const where = { id: formData.id.toString() };
 
   await prisma.fruits.delete({ where });
-  EVENTS.FRUIT_EVENT();
+  EVENTS.FRUIT_CHANGED(where.id);
 
   return null;
 };
