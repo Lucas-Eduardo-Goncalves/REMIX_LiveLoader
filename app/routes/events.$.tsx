@@ -7,7 +7,7 @@ export const loader = ({ request, params }: LoaderArgs) => {
   const path = `/${params["*"]}`;
 
   return eventStream(request.signal, (send) => {
-    const handler = (message: string) => {
+    const handler = () => {
       send({ data: Date.now().toString() });
     };
 

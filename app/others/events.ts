@@ -1,11 +1,19 @@
 import { EventEmitter } from "events";
 
-export const emitter = new EventEmitter();
+declare global {
+  var emitter: EventEmitter;
+}
+
+if (!global.emitter) {
+  global.emitter = new EventEmitter();
+}
+
+export const emitter = global.emitter;
 
 export const EVENTS = {
-  FRUIT_CHANGED: (fruitId: string) => {
-    emitter.emit("/fruits");
-    emitter.emit(`/fruits/create`);
-    emitter.emit(`/fruits/delete`);
+  FRUIT_CHANGED() {
+    global.emitter.emit("/");
+    global.emitter.emit(`/fruits/create`);
+    global.emitter.emit(`/fruits/delete`);
   },
 };
