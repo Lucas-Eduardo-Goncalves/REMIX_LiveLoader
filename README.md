@@ -168,3 +168,5 @@ export default function () {
   );
 }
 ```
+
+All of this content was taken from an article provided by <a href="https://github.com/alexanderson1993">Alex Anderson</a>
