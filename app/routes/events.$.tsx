@@ -1,7 +1,5 @@
 import type { LoaderArgs } from "@remix-run/node";
-import { eventStream } from "remix-utils";
-
-import { emitter } from "~/others/events";
+import { eventStream, emitter } from "~/server";
 
 export const loader = ({ request, params }: LoaderArgs) => {
   const path = `/${params["*"]}`;

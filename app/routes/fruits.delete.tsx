@@ -1,5 +1,6 @@
 import { ActionFunction } from "@remix-run/node";
-import { EVENTS } from "~/others/events";
+
+import { EVENTS } from "~/server";
 import { prisma } from "~/utils";
 
 export const action: ActionFunction = async ({ request }) => {

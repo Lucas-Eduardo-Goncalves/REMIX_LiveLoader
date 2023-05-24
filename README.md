@@ -25,7 +25,7 @@ Realtime of any kind involves 3 parts: An pub/sub handler, a transport mechanism
 
 ## pub/sub
 
-This example uses the built in EventEmitter package in Node.js, which is an in-memory event emitter. You can find the implementation in the `/app/others/events.ts` file. The events themselves are defined by functions which call the event emitter, which makes it so you can trigger multiple events at the same time.
+This example uses the built in EventEmitter package in Node.js, which is an in-memory event emitter. You can find the implementation in the `/app/server/events.ts` file. The events themselves are defined by functions which call the event emitter, which makes it so you can trigger multiple events at the same time.
 
 ```ts
 import { EventEmitter } from "events";
